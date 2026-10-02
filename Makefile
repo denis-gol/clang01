@@ -20,23 +20,32 @@ TARGET = bin/clang01
 #=======================================
 
 all: CFLAGS += -O2
-all: $(TARGET)
+all: clean $(TARGET)
 
 # глянем все промежуточные файлы (@todo - можно сложить в отдельную папку)
 allf: CFLAGS += -save-temps
-allf: $(TARGET)
+allf: clean $(TARGET)
 
 # сборка под трассировку GDB, дебаг-файлы будут лежать отдельно от бинаря
 trace: CFLAGS += -g -O0
-trace: $(TARGET)
+trace: clean $(TARGET)
 	objcopy --only-keep-debug $(TARGET) $(TARGET).debug
 	strip --strip-debug bin/clang01
 	objcopy --add-gnu-debuglink=$(TARGET).debug $(TARGET)
 
-clean:
+clear clean:
 	rm -rf bin/
 	rm -rf cmake*/
 	rm -f $(OBJS)
+	rm -f *.i *.s
+
+info:
+	$(info build-compiler: $(CC))
+	$(info compiler: $(GCC))
+	$(info flags: $(CFLAGS))
+	$(info sources: $(SRCS))
+	$(info objects: $(OBJS))
+	$(info target: $(TARGET))
 
 
 
@@ -65,5 +74,5 @@ $(TARGET): $(OBJS)
 #	rm -rf bin/
 
 
-.PHONY: all clean trace
+.PHONY: all allf trace clean clear info
 
