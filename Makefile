@@ -35,7 +35,8 @@ trace: $(TARGET)
 
 clean:
 	rm -rf bin/
-	# rm OBJS later...
+	rm -rf cmake*/
+	rm -f $(OBJS)
 
 
 
