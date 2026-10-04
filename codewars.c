@@ -33,6 +33,59 @@ bool lovefunc(int flower1, int flower2) {
     return false;
 }
 
+// 8 Kyu.
+// an array with your peers' test scores. Now calculate the average and compare your score!
+// Return true if you're better, else false!
+//    int class[] = {50,50,50};
+//    int class_size = sizeof(class)/sizeof(class[0]);
+//    int your_score = 50;
+//    printf("better than average: %s", better_than_average(class, class_size, your_score) ? "true": "false");
+bool better_than_average(const int class_points[/* class_size */], int class_size, int your_points) {
+    // Your code here :)
+    // Note: `class_size` is the length of `class_points`.
+    float sum = 0.0;
+    for(int i=0; i<class_size; ++i)
+        sum += class_points[i];
+    sum /= class_size;
+
+    return your_points > sum;
+}
+
+// 8 Kyu.
+// calling:
+// //    enum tool p1 = PAPER;
+////    enum tool p2 = ROCK;
+//    enum outcome res = rps(p1, p2); // P1 WON
+//    printf("p1: %s, p2: %s, battle: %s\n", tool_names[p1], tool_names[p2], outcomes_names[res]);
+const char *const tool_names[] = {enum_str(PAPER), enum_str(ROCK), enum_str(SCISSORS)};
+const char *const outcomes_names[] = {enum_str(P1_WON), enum_str(P2_WON), enum_str(DRAW)};
+// solution
+enum outcome rps(enum tool p1, enum tool p2)
+{
+    enum outcome matrix[TOOL_COUNT][OUTCOME_COUNT] = {
+            {DRAW, P2_WON, P1_WON},
+            {P1_WON, DRAW, P2_WON},
+            {P2_WON, P1_WON, DRAW},
+    };
+    return matrix[p1][p2];
+}
+
+// 8 Kyu.
+// Get argument (int), return Even/Odd.
+//     int num;
+//    num = 3;
+//    printf("number %d is: %s\n", num, even_or_odd(num));
+const char* even_or_odd(int number)
+{
+    return ((number%2) ? "Odd" : "Even");
+}
+
+
+
+
+
+
+
 
 
 
