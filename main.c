@@ -21,23 +21,15 @@ int main(void)
 //    printf("\n");
 
 //############### пишем свою strlen ############################################
-    char str[10] = {"123456789\0"};
+    const char *str = "123456789";
+    const char *append = "abcd";
+    const char *append2 = "RTOS";
 //    char str[10] = {"\0"};
 //    char str[10] = {"A\0"};
-    size_t length;
-
-    length = strlen(str);
-    printf("input: %s\n", str);
-    printf("size:  %zu\n", length);
-    printf("\n");
-
-    length = cl01_strlen(str);
-    printf("input: %s\n", str);
-    printf("size:  %zu\n", length);
 
 
 
-//############### разбираем sprintf ############################################
+//@todo###############  разбираем sprintf  ############################################
 //    char message[50]; // Буфер на 50 символов
 //    int id = 7;
 //    int speed = 200;

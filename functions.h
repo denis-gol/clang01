@@ -13,6 +13,8 @@ char* cl01_strcpy (char *restrict dst, const char *restrict src);
 
 size_t cl01_strlen(const char* str);
 
+char* cl01_strcat(char *restrict dest, const char *restrict src );
+
 
 
 
