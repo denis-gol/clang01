@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "functions.h"
 
-void cl01_strcpy (char *dst, const char *src );
+char* cl01_strcpy (char *restrict dst, const char *restrict src);
 
+size_t cl01_strlen(const char* str);
 
 
 
