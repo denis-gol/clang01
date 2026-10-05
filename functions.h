@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 
 char* cl01_strcpy (char *restrict dst, const char *restrict src);
@@ -14,6 +15,10 @@ char* cl01_strcpy (char *restrict dst, const char *restrict src);
 size_t cl01_strlen(const char* str);
 
 char* cl01_strcat(char *restrict dest, const char *restrict src );
+
+int sum_array(const int values[/* count */], size_t count);
+
+void digitize (uint64_t n, uint8_t digits[], size_t *length_out);
 
 
 
