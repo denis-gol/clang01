@@ -5,7 +5,7 @@
 # VARS
 #=======================================
 GCC = gcc
-CFLAGS = -Wall --std=c11
+CFLAGS = -Wall -Wno-unused-function --std=c11
 
 SRCS = main.c \
        functions.c \
