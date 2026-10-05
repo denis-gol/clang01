@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 size_t count_sheep(const bool sheep[/* count */], size_t count);
 
@@ -25,6 +26,11 @@ extern const char *const outcomes_names[];
 
 // вернуть "Even/Odd"
 const char* even_or_odd(int number);
+
+int sum_array(const int values[/* count */], size_t count);
+
+void digitize(uint64_t n, uint8_t digits[], size_t *length_out);
+
 
 
 

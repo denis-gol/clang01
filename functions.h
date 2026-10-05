@@ -16,10 +16,6 @@ size_t cl01_strlen(const char* str);
 
 char* cl01_strcat(char *restrict dest, const char *restrict src );
 
-int sum_array(const int values[/* count */], size_t count);
-
-void digitize (uint64_t n, uint8_t digits[], size_t *length_out);
-
 
 
 
