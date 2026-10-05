@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 
 char* cl01_strcpy (char *restrict dst, const char *restrict src);
@@ -16,7 +15,9 @@ size_t cl01_strlen(const char* str);
 
 char* cl01_strcat(char *restrict dest, const char *restrict src );
 
+int cl_strcmp(const char* lhs, const char* rhs);
 
+size_t safe_concat(char *dst, size_t dst_size, const char *src1, const char *src2);
 
 
 #endif //CLANG01_FUNCTIONS_H
