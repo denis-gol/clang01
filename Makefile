@@ -9,7 +9,9 @@ CFLAGS = -Wall -Wno-unused-function --std=c11
 
 SRCS = main.c \
        functions.c \
-       codewars.c
+       codewars.c \
+       hardware.c
+
 OBJS = $(SRCS:.c=.o)
 
 TARGET = bin/clang01

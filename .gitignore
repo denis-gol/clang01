@@ -4,4 +4,3 @@ bin/
 cmake*/
 *.o
 *.i
-*.c
