@@ -115,6 +115,89 @@ void digitize(uint64_t n, uint8_t digits[], size_t *length_out)
     } while(n);
 }
 
+// принять строку. вернуть строку, повторенную N раз
+// хех, написал с первого раза.
+char *repeat_str(size_t count, const char *src)
+{
+    size_t len = strlen(src);
+    // allocate a string on the heap
+    char *res = calloc(len * count + 1, sizeof(char));
+    char *start = res;
+
+    while(count--) {
+        res = strcat(res, src);
+    }
+
+    return start;
+}
+
+
+//solution must allocate all required memory
+//and return a free-able buffer to the caller.
+char *disemvowel(const char *str)
+{
+    // Vowel list. For O(1) search
+    const char *pattern = "aeiouAEIOU";
+
+    const char *strp = str;
+
+    // pass#1. counting vowels
+    size_t counter = 0;
+    while(*strp) {
+        if (!strchr(pattern, *strp)) ++counter;
+        ++strp;
+    }
+
+    // allocate exact size of memory (+1 for NT)
+    char *res = malloc(counter + 1);
+    char *res_start = res;
+
+    // pass#2. Fill str, exclude vowels
+    strp = str;
+    while(*strp) {
+        if (!strchr(pattern, *strp)) {
+            *res = *strp;
+            ++res;
+        };
+
+        ++strp;
+    }
+    *res = '\0';
+
+    return res_start;
+}
+
+// write to jaden_case and return it
+//    char *str = "asdf qwer";
+//    char jaden_case[] = "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff";
+//    char *res = to_jaden_case (jaden_case, str);
+char *to_jaden_case (char *jaden_case, const char *string)
+{
+    int flag = 1; // need capitalize next letter. Set to 1 because we're at begin of string
+    char *jaden_ptr = jaden_case;
+
+    while (*string){
+        char letter = *string;
+        if (flag) {
+            letter = toupper(letter);
+            flag = 0;
+        }
+        *jaden_ptr = letter;
+
+        // Cannot find declaration to go to
+        if (isspace(*string)) flag = 1;
+
+        ++jaden_ptr;
+        ++string;
+    }
+    *jaden_ptr = '\0';
+
+    return jaden_case;
+}
+
+
+
+
 
 
 

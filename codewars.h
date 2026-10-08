@@ -6,8 +6,12 @@
 #define CLANG01_CODEWARS_H
 
 #include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <ctype.h>
+
 
 size_t count_sheep(const bool sheep[/* count */], size_t count);
 
@@ -30,6 +34,13 @@ const char* even_or_odd(int number);
 int sum_array(const int values[/* count */], size_t count);
 
 void digitize(uint64_t n, uint8_t digits[], size_t *length_out);
+
+char *repeat_str(size_t count, const char *src);
+
+char *disemvowel(const char *str);
+
+char *to_jaden_case (char *jaden_case, const char *string);
+
 
 
 
