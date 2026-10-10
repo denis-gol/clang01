@@ -72,3 +72,37 @@ static void print_array_as_hex(char *str)
     }
     printf("%02x\n", (unsigned char)*str);
 }
+
+static void print_array_int_as_hex(int *arr, size_t count)
+{
+    printf("int arr: ");
+    for (size_t i = 0; i<count; ++i) {
+        printf("%02x ", *arr);
+        ++arr;
+    }
+}
+
+// ########### testing (data, expected) ##################
+//     uint64_t test[][2] = {
+//            {0,0},
+//            {1,1},
+//            {1021,2110},
+//            {123456789,987654321},
+//            {100,100},
+//            {9223372036854775807,-8558966418276229416},
+//    };
+//    int test_cases = sizeof(test) / sizeof*(test);
+//
+//    for (int i = 0; i<test_cases; ++i) {
+//
+//        uint64_t num = test[i][0];
+//        uint64_t exp = test[i][1];
+//
+//
+//        uint64_t res = descendingOrder(num);
+//
+//        printf("num: %ld. ", num);
+//        printf("exp: %ld. ", exp);
+//        printf("res: %ld. ", res);
+//        printf("%s\n", res==exp?"FIT":"FAIL");
+//    }

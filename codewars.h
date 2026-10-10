@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <inttypes.h> // uint8_t
+
 
 
 size_t count_sheep(const bool sheep[/* count */], size_t count);
@@ -40,6 +42,9 @@ char *repeat_str(size_t count, const char *src);
 char *disemvowel(const char *str);
 
 char *to_jaden_case (char *jaden_case, const char *string);
+
+int compare_desc(const void* aaa, const void* bbb);
+uint64_t descendingOrder(uint64_t n);
 
 
 

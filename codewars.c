@@ -195,6 +195,41 @@ char *to_jaden_case (char *jaden_case, const char *string)
     return jaden_case;
 }
 
+//
+//descendingOrder(0)
+//descendingOrder(1021)
+//descendingOrder(123456789)
+int compare_desc(const void* aaa, const void* bbb)
+{
+    uint16_t arg1 = *(const uint8_t*)aaa;
+    uint16_t arg2 = *(const uint8_t*)bbb;
+
+    // -1/+1 - here is descending order. Twist signs if you need to get ascending order
+    if (arg1 < arg2) return 1;
+    else if (arg1 > arg2) return -1;
+    else return 0;
+}
+
+uint64_t descendingOrder(uint64_t n)
+{
+    uint8_t data[20];
+    size_t counter = 0;
+
+    do {
+        uint16_t result = n%10;
+        n /= 10;
+        data[counter++] = result;
+    } while(n);
+
+    qsort(data, counter, sizeof(uint16_t), compare_desc);
+
+    uint64_t accum = 0;
+    for(size_t i = 0; i<counter; ++i) {
+        accum *= 10;
+        accum += data[i];
+    }
+    return accum;
+}
 
 
 
