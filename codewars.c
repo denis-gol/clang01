@@ -231,6 +231,34 @@ uint64_t descendingOrder(uint64_t n)
     return accum;
 }
 
+// Дана ДНК. Комплементарные пары A-T, G-C. Пришла строка, заменить символы на комплементарные.
+//    char *dna = "ATTGGC";
+//    char *dna_c = dna_strand(dna);
+//    printf("dna  : %s\n", dna);
+//    printf("compl: %s\n", dna_c);
+//    free(dna_c);
+char *dna_strand(const char *dna)
+{
+    // @fix - char *compl = malloc(strlen(dna)+1); // strlen - бегаем 2 раза, такое себе, на длинных строках фу.
+    char *compl = calloc(strlen(dna)+1, sizeof(char));
+    size_t counter = 0;
+
+    static const char lookup[256] = {
+            ['A'] = 'T',
+            ['T'] = 'A',
+            ['C'] = 'G',
+            ['G'] = 'C',
+    };
+    while(dna[counter]) {
+        compl[counter] = lookup[(unsigned char)dna[counter]];
+        ++counter;
+    }
+    compl[counter] = '\0';
+
+    return compl;
+}
+
+
 
 
 

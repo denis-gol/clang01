@@ -46,6 +46,9 @@ char *to_jaden_case (char *jaden_case, const char *string);
 int compare_desc(const void* aaa, const void* bbb);
 uint64_t descendingOrder(uint64_t n);
 
+char *dna_strand(const char *dna);
+
+
 
 
 

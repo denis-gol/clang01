@@ -6,8 +6,8 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <inttypes.h> // for: printf("%"PRIu8"%s"...
-
+//#include <inttypes.h> // for: printf("%"PRIu8"%s"...
+#include <stdlib.h> // qsort
 
 #include "functions.h" // пишем аналог функций Си (а что под капотом делается?)
 #include "codewars.h"  // задачки с кодварс
@@ -18,14 +18,12 @@
 
 static void print_array (size_t length, const uint8_t array[length]);
 static void print_array_as_hex(char *str);
+static void print_array_int_as_hex(int *arr, size_t count);
 
 
 int main(void)
 {
 
-//    printf(str);
-//    printf("str: %p.",str);
-//    printf("\n");
 
 //############### пишем свою strcmp ############################################
 //    const char *str = "123456789";
